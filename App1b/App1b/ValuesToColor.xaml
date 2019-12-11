@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1b.ValuesToColor" Title="Values to Color">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="TextColor" Value="Red"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        <Style TargetType="BoxView">
+            <Setter Property="WidthRequest" Value="25"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HeightRequest" Value="150"/>
+            <Setter Property="Margin" Value="0" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout>
+            <Editor Text="{Binding Path=Value}" FontSize="Header"></Editor>
+            <Button Text="Calculate" Clicked="GetColors"></Button>
+            <StackLayout Orientation="Horizontal" Padding="0" Margin="0" Spacing="0">
+                <BoxView Color="Gray" HeightRequest="20" />
+                <BoxView Color="RosyBrown" />
+                <BoxView Color="RosyBrown"/>
+
+                <!-- First Color -->
+                <BoxView Color="{Binding Path=FirstColor.Color}" />
+
+                <BoxView Color="RosyBrown" />
+
+                <!-- Second Color -->
+                <BoxView Color="{Binding Path=SecondColor.Color}" />
+
+                <BoxView Color="RosyBrown"/>
+                <!-- Third Color -->
+                <BoxView Color="{Binding Path=ThirdColor.Color}" />
+
+                <BoxView Color="RosyBrown" />
+
+                <BoxView Color="RosyBrown" />
+
+                <!-- Fourth Color -->
+                <BoxView Color="RosyBrown" />
+
+                <BoxView Color="RosyBrown" />
+
+                <BoxView Color="RosyBrown" />
+
+                <BoxView Color="Gray" HeightRequest="20" />
+
+            </StackLayout>
+            <Label Text="{Binding Path=Error}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

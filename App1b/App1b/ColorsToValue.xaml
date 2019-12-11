@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:App1b"
+             mc:Ignorable="d"
+             x:Class="App1b.ColorsToValue" Title="Colors to Value">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:StringToColorConverter x:Key="stringToColorConverter" />
+        </ResourceDictionary>
+        <Style TargetType="Label">
+            <Setter Property="Margin" Value="0,10,0,0"/>
+            <Setter Property="TextColor" Value="Red"/>
+        </Style>
+        <Style TargetType="BoxView">
+            <Setter Property="WidthRequest" Value="25"/>
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="HeightRequest" Value="150"/>
+            <Setter Property="Margin" Value="0" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Margin="15">
+            <Label Text="Color 1"/>
+            <Picker ItemsSource="{Binding Path=Lists.FirstBandList}" ItemDisplayBinding="{Binding Color}"
+                    SelectedItem="{Binding Path=FirstColor}"></Picker>
+            <Label Text="Color 2"/>
+            <Picker ItemsSource="{Binding Path=Lists.SecondBandList}" ItemDisplayBinding="{Binding Color}"
+                    SelectedItem="{Binding Path=SecondColor}"></Picker>
+            <Label Text="Color 3"/>
+            <Picker ItemsSource="{Binding Path=Lists.ThirdBandList}" ItemDisplayBinding="{Binding Color}"
+                    SelectedItem="{Binding Path=ThirdColor}"></Picker>
+            <Label Text="Color 4"/>
+            <Picker ItemsSource="{Binding Path=Lists.FourthBandList}"
+                    SelectedItem="{Binding Path=FourthColor}"></Picker>
+            <Button Text="Calculate" Clicked="CalculateOhm"></Button>
+            <Label Text="{Binding Path=Value, StringFormat='{0} Ω'}" FontSize="Header"></Label>
+            <StackLayout Orientation="Horizontal" Padding="0" Margin="0" Spacing="0">
+                <BoxView Color="Gray" HeightRequest="20" />
+                <BoxView Color="RosyBrown" />
+                <BoxView Color="RosyBrown"/>
+
+                <!-- First Color -->
+                <BoxView Color="{Binding Path=FirstColor.Color}" />
+
+                <BoxView Color="RosyBrown" />
+
+                <!-- Second Color -->
+                <BoxView Color="{Binding Path=SecondColor.Color}" />
+
+                <BoxView Color="RosyBrown"/>
+                <!-- Third Color -->
+                <BoxView Color="{Binding Path=ThirdColor.Color}" />
+
+                <BoxView Color="RosyBrown" />
+
+                <BoxView Color="RosyBrown" />
+
+                <!-- Fourth Color -->
+                <BoxView Color="{Binding Path=FourthColor}" />
+
+                <BoxView Color="RosyBrown" />
+
+                <BoxView Color="RosyBrown" />
+
+                <BoxView Color="Gray" HeightRequest="20" />
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
